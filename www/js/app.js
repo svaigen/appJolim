@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'starter.controllers','pascalprecht.translate'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,5 +20,67 @@ angular.module('starter', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-  });
+  })
 })
+
+.config(function($stateProvider, $urlRouterProvider, $translateProvider) {
+  $stateProvider
+  .state('menu', {
+    url: "/menu",
+    abstract: true,
+    templateUrl: "templates/menu.html",
+    controller: 'MenuCtrl'
+  })
+
+  .state('menu.about', {
+    url: "/about",
+    views: {
+      'menuContent' :{
+        templateUrl: "templates/about.html",
+        controller: 'AboutCtrl'
+      }
+    }
+  })
+
+  .state('menu.game', {
+    url: "/game",
+    views: {
+      'menuContent' :{
+        templateUrl: "templates/game.html",
+        controller: 'GameCtrl'
+      }
+    }
+  })
+
+  .state('menu.index', {
+    url: "/index",
+    views: {
+      'menuContent' :{
+        templateUrl: "templates/index.html",
+        controller: 'IndexCtrl'
+      }
+    }
+  })
+
+  .state('menu.preferences', {
+    url: "/preferences",
+    views: {
+      'menuContent' :{
+        templateUrl: "templates/preferences.html",
+        controller: 'PreferencesCtrl'
+      }
+    }
+  })
+
+  .state('menu.score', {
+    url: "/score",
+    views: {
+      'menuContent' :{
+        templateUrl: "templates/scores.html",
+        controller: 'ScoreCtrl'
+      }
+    }
+  });
+
+$urlRouterProvider.otherwise('/menu/index');
+});
