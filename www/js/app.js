@@ -42,12 +42,12 @@ angular.module('starter', ['ionic', 'starter.controllers','pascalprecht.translat
     }
   })
 
-  .state('menu.game', {
+  .state('menu.playlist', {
     url: "/game",
     views: {
       'menuContent' :{
-        templateUrl: "templates/game.html",
-        controller: 'GameCtrl'
+        templateUrl: "templates/playlist.html",
+        controller: 'PlaylistCtrl'
       }
     }
   })
@@ -72,15 +72,6 @@ angular.module('starter', ['ionic', 'starter.controllers','pascalprecht.translat
     }
   })
 
-  .state('menu.score', {
-    url: "/score",
-    views: {
-      'menuContent' :{
-        templateUrl: "templates/scores.html",
-        controller: 'ScoreCtrl'
-      }
-    }
-  });
 
 $urlRouterProvider.otherwise('/menu/index');
 });
