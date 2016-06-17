@@ -43,7 +43,7 @@ angular.module('starter', ['ionic', 'starter.controllers','pascalprecht.translat
   })
 
   .state('menu.playlist', {
-    url: "/game",
+    url: "/playlist",
     views: {
       'menuContent' :{
         templateUrl: "templates/playlist.html",
