@@ -6,7 +6,7 @@ angular.module('starter.controllers',[])
     var rhythms = "#indexRhythms";
     var logo = "#logo";
     var imgLogo = "#imgLogo";
-    listRhytms = ["Rock","Samba","Axé","Sertanejo"];
+    listRhytms = ["Rock","Samba","Axé","Sertanejo", "Funk", "Eletrônico", "Tecnobrega"];
 
     //definicao da variavel da animação
     var tl = new TimelineMax({
