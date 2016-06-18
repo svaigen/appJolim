@@ -1,5 +1,23 @@
-#indexBg{
-  width: 100%;
-  height: 100%;
+.object-center{
   position: absolute;
+}
+
+
+.indexText{
+  text-align: center;
+  font-weight: bolder;
+  font-family: sans-serif;
+  font-stretch: ultra-expanded;
+}
+
+#indexTitle{
+  font-size: 20pt;
+}
+
+#indexLead{
+  font-size: 16pt;
+}
+
+#indexRhytms{
+  font-size: 14pt;
 }
