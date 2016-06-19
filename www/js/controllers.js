@@ -50,4 +50,10 @@ angular.module('starter.controllers',[])
 
   .controller('PlaylistCtrl',function(){})
 
-  .controller('MenuCtrl',function(){});
+  .controller('MenuCtrl',function($state, $scope){
+      var trackList = [new Track("Velha Infância","Tribalistas","../img/album-tribalistas.png","../audio/velha-infancia.mp3")];
+      trackList.push(new Track("A dor desse amor","KLB","../img/album-klb.png","../audio/a-dor-desse-amor.mp3"));
+      trackList.push(new Track("Bem querer","Mauricio Manieri","../img/album-manieri.png","../audio/bem-querer.mp3"));
+      trackList.push(new Track("Quando Você Passa","Sandy & Junior","../img/album-sandyjunior.png","../audio/quando-voce-passa.mp3"));
+      $scope.trackList = trackList;
+  });
