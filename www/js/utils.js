@@ -1,4 +1,5 @@
-function Track(title, artist, srcAlbum, srcSong){
+function Track(id,title, artist, srcAlbum, srcSong){
+  this.id = id;
   this.title = title;
   this.artist = artist;
   this.srcAlbum = srcAlbum;

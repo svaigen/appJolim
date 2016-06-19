@@ -4,8 +4,8 @@
   </ion-nav-buttons>
   <ion-content class="has-header">
     <div class="list" ng-repeat="track in trackList">
-      <a class="item item-thumbnail-left" href="#">
-        <img src="{{track.srcAlbum}}">
+      <a id="{{track.id}}" class="item item-thumbnail-left" href="#">
+        <img src="{{track.srcAlbum}}" />
         <h2>{{track.title}}</h2>
         <p>{{track.artist}}</p>
       </a>
@@ -17,8 +17,11 @@
       <a class="tab-item">
         <i class="icon ion-pause"></i>
       </a>
-      <a class="tab-item">
+      <a class="tab-item" ng-click="playSong()">
         <i class="icon ion-play"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-stop"></i>
       </a>
       <a class="tab-item">
         <i class="icon ion-skip-forward"></i>
