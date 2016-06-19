@@ -63,6 +63,18 @@ angular.module('starter.controllers',[])
       }
     }
 
+    $scope.stopSong = function(id){
+      if ($scope.playingMusic){
+      //  if (id == null){
+        //  id = $scope.currentSong;
+        //}
+      //  song.setAttribute('src',$scope.trackList[id].srcSong);
+        song.pause();
+        song.currentTime = 0;
+        //document.getElementById($scope.currentSong).className+=" playing";
+        $scope.playingMusic = false;
+      }
+    }
 
   })
 
