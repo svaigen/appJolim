@@ -63,19 +63,52 @@ angular.module('starter.controllers',[])
       }
     }
 
-    $scope.stopSong = function(id){
+    $scope.pauseSong = function(){
       if ($scope.playingMusic){
-      //  if (id == null){
-        //  id = $scope.currentSong;
-        //}
-      //  song.setAttribute('src',$scope.trackList[id].srcSong);
         song.pause();
-        song.currentTime = 0;
-        //document.getElementById($scope.currentSong).className+=" playing";
+        document.getElementById($scope.currentSong).className = "item item-thumbnail-left";
         $scope.playingMusic = false;
       }
     }
 
+    $scope.stopSong = function(){
+      if ($scope.playingMusic){
+        song.pause();
+        song.currentTime = 0;
+        document.getElementById($scope.currentSong).className = "item item-thumbnail-left";
+        $scope.playingMusic = false;
+      }
+    }
+
+    $scope.forwardSong = function(id){
+      document.getElementById($scope.currentSong).className = "item item-thumbnail-left";
+      if($scope.trackList.length-1 == $scope.currentSong){
+        id = 0;
+        $scope.currentSong = 0;
+      }else{
+       id = $scope.currentSong + 1;
+       $scope.currentSong++;
+      }
+      song.setAttribute('src',$scope.trackList[id].srcSong);
+      song.play();
+      document.getElementById($scope.currentSong).className+=" playing";
+      $scope.playingMusic = true;
+    }
+
+    $scope.backwardSong = function(id){
+      document.getElementById($scope.currentSong).className = "item item-thumbnail-left";
+      if(0 == $scope.currentSong){
+        id = $scope.trackList.length-1;
+        $scope.currentSong = $scope.trackList.length-1;
+      }else{
+       id = $scope.currentSong - 1;
+       $scope.currentSong--;
+      }
+      song.setAttribute('src',$scope.trackList[id].srcSong);
+      song.play();
+      document.getElementById($scope.currentSong).className+=" playing";
+      $scope.playingMusic = true;
+    }
   })
 
   .controller('MenuCtrl',function($state, $scope){
