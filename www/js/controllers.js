@@ -44,12 +44,25 @@ angular.module('starter.controllers',[])
 
   })
 
-  .controller('PreferencesCtrl',function(){})
+  .controller('PreferencesCtrl',function($scope, $translate){
+    $scope.changeLanguage = function (language) {
+      $translate.use(language);
+    };
+  })
 
   .controller('AboutCtrl',function(){})
 
   .controller('PlaylistCtrl',function($state, $scope){
     var song = document.createElement('audio');
+
+    song.addEventListener('ended',function(){
+      document.getElementById($scope.currentSong).className = "item item-thumbnail-left";
+      if (++$scope.currentSong==$scope.trackList.length){
+        $scope.currentSong = 0;
+      }
+      $scope.playingMusic = false;
+      $scope.playSong($scope.currentSong);
+    },false);
 
     $scope.selectSong = function(id){
       document.getElementById($scope.currentSong).className = "item item-thumbnail-left";
@@ -68,6 +81,7 @@ angular.module('starter.controllers',[])
         if (!$scope.pausedMusic){
             song.setAttribute('src',$scope.trackList[id].srcSong);
         }
+        $scope.pausedMusic = false;
         song.play();
         document.getElementById($scope.currentSong).className+=" playing";
         $scope.playingMusic = true;
@@ -125,10 +139,11 @@ angular.module('starter.controllers',[])
   })
 
   .controller('MenuCtrl',function($state, $scope){
-      var trackList = [new Track(0,"Velha Infância","Tribalistas","../img/album-tribalistas.png","../audio/velha-infancia.mp3")];
-      trackList.push(new Track(1,"A dor desse amor","KLB","../img/album-klb.png","../audio/a-dor-desse-amor.mp3"));
-      trackList.push(new Track(2,"Bem querer","Mauricio Manieri","../img/album-manieri.png","../audio/bem-querer.mp3"));
-      trackList.push(new Track(3,"Quando Você Passa","Sandy & Junior","../img/album-sandyjunior.png","../audio/quando-voce-passa.mp3"));
+      var trackList = [ new Track(0,"Velha Infância","Tribalistas","../img/album-tribalistas.png","../audio/velha-infancia.mp3")];
+      trackList.push(new Track(1,"September","Molejo","../img/album-molejo.jpg","../audio/september.mp3"));
+      trackList.push(new Track(2,"A dor desse amor","KLB","../img/album-klb.png","../audio/a-dor-desse-amor.mp3"));
+      trackList.push(new Track(3,"Bem querer","Mauricio Manieri","../img/album-manieri.png","../audio/bem-querer.mp3"));
+      trackList.push(new Track(4,"Quando Você Passa","Sandy & Junior","../img/album-sandyjunior.png","../audio/quando-voce-passa.mp3"));
       $scope.trackList = trackList; //playlist geral
       $scope.currentSong = 0; //armazena o id da musica corrente a ser tocada ou que está tocando
       $scope.playingMusic = false; //indica se há alguma música tocando ou não

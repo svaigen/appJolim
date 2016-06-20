@@ -72,6 +72,27 @@ angular.module('starter', ['ionic', 'starter.controllers','pascalprecht.translat
     }
   })
 
+  $urlRouterProvider.otherwise('/menu/index');
 
-$urlRouterProvider.otherwise('/menu/index');
+  $translateProvider.translations('pt-br',{
+    INICIO: 'Início',
+    PLAYLIST: 'Playlist',
+    PREFERENCIAS: 'Preferências',
+    SOBRE: 'Sobre',
+    DESENVOLVEDOR: 'Desenvolvedor',
+    DESENVOLVEDORA: 'Desenvolvedora',
+    TEXTO_ABOUT_APP: 'Aplicativo desenvolvido para a XII JOLIM - Jornada Linux de Maringá.'
+  });
+  $translateProvider.translations('en',{
+    INICIO: 'Begin',
+    PLAYLIST: 'Playlist',
+    PREFERENCIAS: 'Preferences',
+    SOBRE: 'About',
+    DESENVOLVEDOR: 'Developer',
+    DESENVOLVEDORA: 'Developer',
+    TEXTO_ABOUT_APP: 'App developed to XII JOLIM - Jornada Linux de Maringá.'
+  });
+
+  $translateProvider.preferredLanguage('pt-br');
+
 });
