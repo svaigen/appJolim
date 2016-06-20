@@ -51,12 +51,23 @@ angular.module('starter.controllers',[])
   .controller('PlaylistCtrl',function($state, $scope){
     var song = document.createElement('audio');
 
+    $scope.selectSong = function(id){
+      document.getElementById($scope.currentSong).className = "item item-thumbnail-left";
+      song.setAttribute('src',$scope.trackList[id].srcSong);
+      song.play();
+      $scope.currentSong = id;
+      document.getElementById($scope.currentSong).className+=" playing";
+      $scope.playingMusic = true;
+    }
+
     $scope.playSong = function(id){
       if (!$scope.playingMusic){
         if (id == null){
           id = $scope.currentSong;
         }
-        song.setAttribute('src',$scope.trackList[id].srcSong);
+        if (!$scope.pausedMusic){
+            song.setAttribute('src',$scope.trackList[id].srcSong);
+        }
         song.play();
         document.getElementById($scope.currentSong).className+=" playing";
         $scope.playingMusic = true;
@@ -68,6 +79,7 @@ angular.module('starter.controllers',[])
         song.pause();
         document.getElementById($scope.currentSong).className = "item item-thumbnail-left";
         $scope.playingMusic = false;
+        $scope.pausedMusic = true;
       }
     }
 
@@ -77,6 +89,7 @@ angular.module('starter.controllers',[])
         song.currentTime = 0;
         document.getElementById($scope.currentSong).className = "item item-thumbnail-left";
         $scope.playingMusic = false;
+        $scope.pausedMusic = false;
       }
     }
 
@@ -119,4 +132,5 @@ angular.module('starter.controllers',[])
       $scope.trackList = trackList; //playlist geral
       $scope.currentSong = 0; //armazena o id da musica corrente a ser tocada ou que está tocando
       $scope.playingMusic = false; //indica se há alguma música tocando ou não
+      $scope.pausedMusic = false;
   });

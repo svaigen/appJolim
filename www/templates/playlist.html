@@ -4,7 +4,7 @@
   </ion-nav-buttons>
   <ion-content class="has-header">
     <div class="list" ng-repeat="track in trackList">
-      <a id="{{track.id}}" class="item item-thumbnail-left" href="#">
+      <a id="{{track.id}}" class="item item-thumbnail-left" ng-click=selectSong({{track.id}})>
         <img src="{{track.srcAlbum}}" />
         <h2>{{track.title}}</h2>
         <p>{{track.artist}}</p>
