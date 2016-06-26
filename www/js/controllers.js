@@ -139,11 +139,11 @@ angular.module('starter.controllers',[])
   })
 
   .controller('MenuCtrl',function($state, $scope){
-      var trackList = [ new Track(0,"Velha Infância","Tribalistas","../img/album-tribalistas.png","../audio/velha-infancia.mp3")];
-      trackList.push(new Track(1,"September","Molejo","../img/album-molejo.jpg","../audio/september.mp3"));
-      trackList.push(new Track(2,"A dor desse amor","KLB","../img/album-klb.png","../audio/a-dor-desse-amor.mp3"));
-      trackList.push(new Track(3,"Bem querer","Mauricio Manieri","../img/album-manieri.png","../audio/bem-querer.mp3"));
-      trackList.push(new Track(4,"Quando Você Passa","Sandy & Junior","../img/album-sandyjunior.png","../audio/quando-voce-passa.mp3"));
+      var trackList = [ new Track(0,"Velha Infância","Tribalistas","img/album-tribalistas.png","audio/velha-infancia.mp3")];
+      trackList.push(new Track(1,"September","Molejo","img/album-molejo.jpg","audio/september.mp3"));
+      trackList.push(new Track(2,"A dor desse amor","KLB","img/album-klb.png","audio/a-dor-desse-amor.mp3"));
+      trackList.push(new Track(3,"Bem querer","Mauricio Manieri","img/album-manieri.png","audio/bem-querer.mp3"));
+      trackList.push(new Track(4,"Quando Você Passa","Sandy & Junior","img/album-sandyjunior.png","audio/quando-voce-passa.mp3"));
       $scope.trackList = trackList; //playlist geral
       $scope.currentSong = 0; //armazena o id da musica corrente a ser tocada ou que está tocando
       $scope.playingMusic = false; //indica se há alguma música tocando ou não
